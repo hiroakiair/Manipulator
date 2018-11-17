@@ -19,14 +19,13 @@ a_1[4] = (30*guzai_0 - 30*guzai_02 + (14*grad + 16*0)*2*delta_t)/(2*pow(2*delta_
 a_2[0] = guzai_f1
 a_2[1] = grad
 a_2[2] = 0
-a_2[3] = (20*guzai_f - 20*guzai_f1 - (8*0 + 12*grad)*2*delta_t)/(2*pow(t_f,3))
-a_2[4] = (30*guzai_f1 - 30*guzai_f + (14*0 + 16*grad)*2*delta_t)/(2*pow(t_f,4))
+a_2[3] = (20*guzai_f - 20*guzai_f1 - (8*0 + 12*grad)*2*delta_t)/(2*pow(2*delta_t,3))
+a_2[4] = (30*guzai_f1 - 30*guzai_f + (14*0 + 16*grad)*2*delta_t)/(2*pow(2*delta_t,4))
 
 x_1 = a_1[0] + a_1[1]*t_1 + a_1[2]*pow(t_1, 2) + a_1[3]*pow(t_1, 3) + a_1[4]*pow(t_1, 4) 
 x_2 = grad*(t_2 - 2*delta_t) + guzai_02
-x_3 = a_2[0] + a_2[1]*t_3 + a_2[2]*pow(t_3, 2) + a_2[3]*pow(t_3, 3) + a_2[4]*pow(t_3, 4) 
+x_3 = a_2[0] + a_2[1]*t_1 + a_2[2]*pow(t_1, 2) + a_2[3]*pow(t_1, 3) + a_2[4]*pow(t_1, 4) 
 
-x = np.r_[x_1, x_2]
-t = np.r_[t_1, t_2]
+x = np.r_[x_1, x_2, x_3]
 pyplot.plot(t, x)
 pyplot.show()
